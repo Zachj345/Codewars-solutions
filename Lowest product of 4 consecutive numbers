@@ -1,0 +1,22 @@
+'''
+Create a function that returns the lowest product of 4 consecutive digits in a number given as a string.
+
+This should only work if the number has 4 digits or more. If not, return "Number is too small".
+
+Example
+
+lowest_product("123456789") --> 24 (1x2x3x4)
+lowest_product("35") --> "Number is too small"
+'''
+
+import math
+def lowest_product(input):
+    result = []
+    if len(input) < 4:
+        return "Number is too small"
+    res = []
+    for i in range(len(input)-3):
+        res.append(input[i:i+4])
+    for i in res:
+        result.append(math.prod(int(x) for x in i))
+    return min(result)
