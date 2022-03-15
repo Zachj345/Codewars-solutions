@@ -1,0 +1,18 @@
+'''
+Complete the greatestProduct method so that it'll find the greatest product of five consecutive digits in the given string of digits.
+
+For example:
+
+greatestProduct("123834539327238239583") // should return 3240
+The input string always has more than five digits.
+
+Adapted from Project Euler.
+'''
+
+import math
+def greatest_product(n):
+    res = []
+    n = [int(i) for i in n]
+    for i in range(len(n)-4):
+        res.append(math.prod(n[i:i+5]))
+    return max(res)
